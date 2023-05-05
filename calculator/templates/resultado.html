@@ -1,0 +1,7 @@
+{% extends 'calculate.html' %}
+
+{% block content %}
+  <h2>Resultado</h2>
+  <p>La calificación final es: {{ total }}</p>
+  <a href="{% url 'calculadora_calificaciones' %}">Volver a la calculadora de calificaciones</a>
+{% endblock %}

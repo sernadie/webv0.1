@@ -1,0 +1,11 @@
+{% block content %}
+  <h2>Calculadora de calificaciones</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="nota">Nota:</label>
+    <input type="number" step="0.01" name="nota" required>
+    <label for="porcentaje">Porcentaje:</label>
+    <input type="number" step="0.01" name="porcentaje" required>
+    <button type="submit">Agregar calificación</button>
+  </form>
+{% endblock %}
