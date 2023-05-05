@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Word a PDF</title>
+</head>
+<body>
+    <h1>Convertidor de Word a PDF</h1>
+    <form id="word-to-pdf-form" enctype="multipart/form-data">
+        <input type="file" name="file" id="file-input" />
+        <button type="submit">Convertir a PDF</button>
+    </form>
+    <script src="{% static 'wordtopdf/js/word_to_pdf.js' %}"></script>
+</body>
+</html>

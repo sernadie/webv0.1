@@ -27,12 +27,20 @@ SECRET_KEY = 'django-insecure-5&-porjxacw_p1&kn+nga9ytbp1#oxbrx2#u82)u&x+4df9zcv
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
-                 '127.0.0.1'
+                 '127.0.0.1',
+                 'localhost:5173',
 
 ]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'http://localhost:5173',
+    
 
 
-# Application definition
+]
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = [    'http://localhost:5173',]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,19 +49,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'calculator',
-    'rest_framework'
-    ]
+    'wordtopdf',
+    'rest_framework',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'backendweb.urls'
 
@@ -129,16 +141,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'calculator', 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages'
-            ],
-        },
-    },
-]
+
